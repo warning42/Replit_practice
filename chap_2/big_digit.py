@@ -6,21 +6,25 @@
 
 # 배열의 크기 N, 숫자가 더해지는 횟수 M, 그리고 K가 주어짐
 
-from random import randint
+N, M, K = map(int, input().split())
+num = list(map(int,input().split()))
 
-N = randint(2, 1000)
-while True:
-  M = randint(1, 10000)
-  K = randint(1, 10000)
-  if K <= M:
-    break
-  else:
-    continue
+sum = 0
 
-A = []
-for _ in range(0,N):
-  A.append(randint(1, 10000))
+num.sort()
 
-print(N, M, K, sep=',', end=' ')
-print(A, sep=' ')
+if M == 0:
+    sum = 0
+else:
+    while M > 0:
+        for _ in range(0,K):
+            if M == 0:
+                break
+            sum += num[-1]
+            M = M - 1
+        if M == 0:
+            break
+        sum += num[-2]
+        M = M - 1
 
+print(sum)
