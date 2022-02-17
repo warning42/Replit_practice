@@ -8,21 +8,24 @@
 
 N, M, K = map(int, input().split())
 
-num = map(int, input().split())
-num = list(num)
-
-num.sort() # 오름차순 정렬
+num = list(map(int,input().split()))
 
 sum = 0
 
+num.sort()
+
 if M == 0:
-  sum = 0
+    sum = 0
 else:
-  while M > 0:
-    for i in range(0,M):
-      sum += num[-1] * K
-      M = M - K
-      if M == 0:
-        break
-      sum += num[-2] * K
-      M = M - K
+    while M > 0:
+        for _ in range(0,K):
+            if M == 0:
+                break
+            sum += num[-1]
+            M = M - 1
+        if M == 0:
+            break
+        sum += num[-2]
+        M = M - 1
+
+print(sum)
