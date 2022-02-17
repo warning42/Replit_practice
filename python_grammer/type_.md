@@ -169,9 +169,44 @@ print(a[1:4])  # ell
 ## 사전 자료형(Dictionary Datatype)
 - 키(key)와 값(value)의 쌍을 데이터로 가지는 자료형
 - 변경 불가능한 데이터를 키로 사용할 수 있다. (수 자료형, 문자열 자료형, 튜플 자료형)
--
-
-## 사전 자료형(Dictionary Datatype)
-- 키(key)와 값(value)의 쌍을 데이터로 가지는 자료형
-- 변경 불가능한 데이터를 키로 사용할 수 있다. (수 자료형, 문자열 자료형, 튜플 자료형)
 - 파이썬의 사전 자료형은 내부적으로 '해시 테이블'을 이용하므로 기본적으로 데이터의 검색 및 수정에 있어서 O(1)의 시간에 처리할 수 있다. 리스트보다 훨씬 빠르게 동작한다는 점을 알아두자.
+```python
+data = dict()
+data['사과'] = 'Apple'
+data['바나나'] = 'Banana'
+data['코코넛'] = 'Coconut'
+
+print(data)
+# ['사과' : 'Apple', '바나나' : 'Banana', '코코넛' : 'Coconut']
+```
+
+- in 연산자를 이용하여(iterable 자료형에 사용 가능), 사전 안의 특정 원소를 찾을 수 있다.
+- iterable 자료형이란 리스트, 튜플 같이 순차적인 정보를 담고 있는 자료형을 말한다.
+```python
+# '원소 in 사전' 형태로 특정 원소를 찾을 수 있음
+if '사과' in data:
+  print("True")
+else:
+  print("False")
+
+# True - 사과가 dict 안에 있음
+```
+
+
+- 사전의 키와 값을 별도로 뽑기 위한 함수가 존재한다.
+- keys() 함수 : 키 데이터만 뽑아 리스트로 이용
+- values() 함수 : 값 데이터만 뽑아 리스트로 이용
+```python
+key_list = data.keys()
+value_list = data.values()
+
+print(key_list) # dict_key(['사과', '바나나', '코코넛'])
+print(value_list) # dict_values(['Apple', 'Banana', 'Coconut'])
+
+for key in key_list:
+  print(data[key])
+
+# Apple
+# Banana
+# Coconut
+```
